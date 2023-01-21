@@ -50,14 +50,12 @@ describe('Регистрация', ()=> {
      }) 
  
     it('Не успешная регистрация, используя ввод пустых полей(+по отдельности)', ()=>{ 
-        cy.visit('https://stage.deepskills.ru/my-way?action=sign-up') 
- 
-        const rnd = Math.round(Math.random() * 8999) + 1000; 
-        const username = 'user_' + rnd; 
-        const email = username + 'gmail.com'; 
-
+        cy.visit('https://stage.deepskills.ru/my-way?action=sign-up')
+        cy.get('[data-qa="auth-name_input"]').type() 
+        cy.get('[data-qa="auth-email_input"]').type() 
+        cy.get('[data-qa="auth-phone_input"]').type() 
+        cy.get('[data-qa="auth-next_button"]').click() 
         
- 
      }) 
  
     it('Перезагрузить страницу с пройденной регистрацией', ()=>{ 

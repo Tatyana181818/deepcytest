@@ -14,7 +14,14 @@ describe('Авторизация', () => {
         cy.get('[data-qa="auth-password_input"]').type("Johny#97")
         cy.get('[data-qa="auth-submit_button"]').click()
         cy.contains('Пользователь с такими данными не найден').should('be.visible')
-       
     })
+
+    it('Не успешная авторизация, используя валидный логин и невалидный пароль', ()=>{
+        cy.visit("https://stage.deepskills.ru/my-way?action=sign-in")
+        cy.get('[data-qa="auth-email_input"]').type("cm@ck.ru")
+        cy.get('[data-qa="auth-password_input"]').type("Johny")
+        cy.get('[data-qa="auth-submit_button"]').click()
+        cy.contains('Пользователь с такими данными не найден').should('be.visible')
+     })
 
 })
