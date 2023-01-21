@@ -1,0 +1,23 @@
+{
+  "name": "deepcytest",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tatyana181818/deepcytest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tatyana181818/deepcytest/issues"
+  },
+  "homepage": "https://github.com/Tatyana181818/deepcytest#readme",
+  "devDependencies": {
+    "cypress": "^9.7.0"
+  }
+}
