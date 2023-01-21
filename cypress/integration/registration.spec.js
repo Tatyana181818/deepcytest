@@ -62,7 +62,7 @@ describe('Регистрация', ()=> {
  
     it('Перезагрузить страницу с пройденной регистрацией', ()=>{ 
         cy.visit('https://stage.deepskills.ru/my-way?action=sign-up') 
- 
+
  
     }) 
  
