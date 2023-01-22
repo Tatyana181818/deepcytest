@@ -23,3 +23,15 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+
+Cypress.Commands.add('Введение в питон', ()=>{
+	cy.get('[data-qa="exercise-title"]')
+    cy.get('[data-qa="exercise-instructions"]')
+    cy.get('[data-qa="exercise-use_hint]').clck()
+    cy.get('[data-qa="exercise-show_answer"]').click()
+    
+})
+	
+
+
