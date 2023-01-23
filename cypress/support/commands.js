@@ -25,13 +25,36 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-Cypress.Commands.add('Введение в питон', ()=>{
-	cy.get('[data-qa="exercise-title"]')
-    cy.get('[data-qa="exercise-instructions"]')
-    cy.get('[data-qa="exercise-use_hint]').clck()
+Cypress.Commands.add('normal_exercise_check', (exercise_title) => {
+    cy.get('[data-qa="exercise-title"]').should('eq', exercise_title)
+    //cy.get('[@data-qa="exercise-content"]').should('eq', exercise_content)
+    //cy.get('[data-qa="exercise-instructions"]').should('eq', exercise_instructions)
+    cy.get('[@data-qa="exercise-use_hint"]').click()
+    //cy.get('[@data-qa="exercise-use_hint"]').should('eq', exercise_hint)
     cy.get('[data-qa="exercise-show_answer"]').click()
-    
+    cy.get('[@data-qa="exercise-python-compile"]').click()
+    cy.get('[@data-qa="exercise-answer"]').click()
+    cy.contains('Отлично! Вы выполнили задание!').should('be.visible')
 })
-	
+
+
+Cypress.Commands.add('courses_api_check', (course_slug) => {
+    cy.fixture('introduction-to-python').then((json) => {
+        cy.request('https://stage.deepskills.ru/api/v1/courses/' + course_slug).as('course')
+        cy.get('@course').then((response) => {
+            expect(response.body).deep.eq(json)
+      })
+      
+
+
+
+
+      
+
+          })
+      })
+    
+
+      
 
 
