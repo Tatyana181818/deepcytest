@@ -2,14 +2,14 @@ describe("Введение в питон", ()=> {
     it('Тестирование главной страницы курса', ()=> {
 
         cy.visit("https://stage.deepskills.ru/courses/introduction-to-python")
-        cy.get('h1').should('eq', 'Python для начинающих')
+        cy.get('h1').should('have.text', 'Python для начинающих')
         ////cy.contains(' В курсе вы узнаете о мощных способах хранения и управления данными, а также о полезных инструментах для обработки данных, которые помогут вам самостоятельно проводить анализ.')
         
     })
 
     it('introduction-to-python/exercises/162', ()=> {
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/162')
-        cy.normal_exercise_check('Интерфейс Python')
+        
+        cy.courses_api_check('introduction-to-python')
         
     })
 

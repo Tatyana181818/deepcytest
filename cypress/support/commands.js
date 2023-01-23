@@ -36,6 +36,25 @@ Cypress.Commands.add('normal_exercise_check', (exercise_title) => {
     cy.get('[@data-qa="exercise-answer"]').click()
     cy.contains('Отлично! Вы выполнили задание!').should('be.visible')
 })
-	
+
+
+Cypress.Commands.add('courses_api_check', (course_slug) => {
+    cy.fixture('introduction-to-python').then((json) => {
+        cy.request('https://stage.deepskills.ru/api/v1/courses/' + course_slug).as('course')
+        cy.get('@course').then((response) => {
+            expect(response.body).deep.eq(json)
+      })
+      
+
+
+
+
+      
+
+          })
+      })
+    
+
+      
 
 
