@@ -8,7 +8,7 @@ describe("Введение в питон", ()=> {
     })
 
     it('introduction-to-python/exercises/162', ()=> {
-<<<<<<< HEAD
+
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/162')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Интерфейс Python')
         cy.get('[data-qa="exercise-content"]')// локатор показывает описание  
@@ -17,10 +17,9 @@ describe("Введение в питон", ()=> {
         cy.gt('[data-qa="exercise-hint_content"]') 
         cy.get('[data-qa="exercise-show_answer"]').click()
         cy.get('[data-qa="exercise-answer"]').click()
-=======
+
         
-        cy.courses_api_check('introduction-to-python')
->>>>>>> 1ad1c33fb7a8d04417bacad267d70795ca3239e4
+
         
     })
 
