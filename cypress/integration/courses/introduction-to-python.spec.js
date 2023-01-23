@@ -10,23 +10,27 @@ describe("Введение в питон", ()=> {
     it('introduction-to-python/exercises/162', ()=> {
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/162')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Интерфейс Python')
-        //cy.get('[data-qa="exercise-content"]') - нужно придумать как проверить контент
-        //cy.get('[data-qa="exercise-instructions"]') - нужно придумать как проверить инструкции
-        //cy.get('[data-qa="exercise-hint_content"]') - нужно придумать как проверить подсказку
+        cy.get('[data-qa="exercise-content"]')// локатор показывает описание  
+        cy.get('[data-qa="exercise-instructions"]')//локатор показывает упражнение 
+        cy.get('[data-qa="exercise-use_hint"]').click()
+        cy.gt('[data-qa="exercise-hint_content"]') 
+        cy.get('[data-qa="exercise-show_answer"]').click()
+        cy.get('[data-qa="exercise-answer"]').click()
         
     })
 
     it('ntroduction-to-python/exercises/160', ()=> {
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/160')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Когда применять Python?')
-
+        cy.get('').click()
+        cy.get('[data-qa="exercise-answer"]').click()
+        
     })
 
 
     it('introduction-to-python/exercises/286', ()=>{
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/286')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Комментируем код')
-        cy.get('')
         cy.get('[data-qa="exercise-instructions"]')
         cy.get('[data-qa="exercise-use_hint]').clck()
         cy.get('[data-qa="exercise-show_answer"]').click()
@@ -35,7 +39,6 @@ describe("Введение в питон", ()=> {
     it('introduction-to-python/exercises/429', ()=>{
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/429')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Арифметические операции')
-
         cy.get('[data-qa="exercise-instructions"]')
         cy.get('[data-qa="exercise-use_hint"]').click()
         cy.get('[data-qa="exercise-show_answer"]').click()
@@ -316,70 +319,109 @@ describe("Введение в питон", ()=> {
 
     })
 
-    it('introduction-to-python/exercises/2716', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2717', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2717')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Ваш первый массив NumPy')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2718', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2718')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Рост футболистов')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2719', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2719')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Индекс массы тела футболистов')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2720', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2720')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Определяем самого легкого футболиста')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2721', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2721')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Особенности NumPy')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2722', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2722')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Выборка массивов NumPy')
         
 
     })
 
-    it('introduction-to-python/exercises/271', ()=>{
-        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/271')
-        cy.get('[data-qa="exercise-title"]').should('eq', '')
+    it('introduction-to-python/exercises/2723', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2723')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Двумерные массивы NumPy')
         
 
     })
 
+    it('introduction-to-python/exercises/2724', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2724')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Ваш первый двумерный массив NumPy')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2725', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2725')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Данные о футболистах в двумерном массиве')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2726', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2726')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Выборка в двухмерном массиве NumPy')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2727', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2727')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Векторные вычисления')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2728', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2728')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'NumPy: Статистика данных')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2729', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2729')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Среднее значение в сравнении с медианным')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2730', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2730')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Изучаем данные о футболистах дальше')
+        
 
+    })
 
+    it('introduction-to-python/exercises/2731', ()=>{
+        cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/2731')
+        cy.get('[data-qa="exercise-title"]').should('eq', 'Объединяем все данные')
+        
 
-
+    })
 })
 

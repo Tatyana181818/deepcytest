@@ -55,6 +55,7 @@ describe('Регистрация', ()=> {
         cy.get('[data-qa="auth-phone_input"]').clear()
         cy.contains('Введите имя').should('be.visible')
         cy.contains('Введите настоящий email').should('be.visible')
+        cy.contains('Введите номер телефона').should('be.visible')
      }) 
  
     it('Перезагрузить страницу с пройденной регистрацией', ()=>{ 
