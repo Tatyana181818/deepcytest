@@ -9,10 +9,7 @@ describe("Введение в питон", ()=> {
 
     it('introduction-to-python/exercises/162', ()=> {
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/162')
-        cy.get('[data-qa="exercise-title"]').should('eq', 'Интерфейс Python')
-        //cy.get('[data-qa="exercise-content"]') - нужно придумать как проверить контент
-        //cy.get('[data-qa="exercise-instructions"]') - нужно придумать как проверить инструкции
-        //cy.get('[data-qa="exercise-hint_content"]') - нужно придумать как проверить подсказку
+        cy.normal_exercise_check('Интерфейс Python')
         
     })
 
