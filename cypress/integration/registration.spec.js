@@ -58,12 +58,6 @@ describe('Регистрация', ()=> {
         cy.contains('Введите номер телефона').should('be.visible')
      }) 
  
-    it('Перезагрузить страницу с пройденной регистрацией', ()=>{ 
-        cy.visit('https://stage.deepskills.ru/my-way?action=sign-up')
-
- 
-    }) 
- 
  
 })
 

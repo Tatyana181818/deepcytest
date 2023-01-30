@@ -1,4 +1,15 @@
-describe("Введение в питон", ()=> {
+describe("Введение в питон", ()=> { 
+
+    beforeEach(() => {
+        cy.login_ui('cm@ck.ru', 'Johny#97')
+      })
+    
+
+    
+    it('Тестирование соответсвия стабильного json курса с текущим', ()=> {
+        cy.courses_api_check('introduction-to-python')
+
+    })
     it('Тестирование главной страницы курса', ()=> {
 
         cy.visit("https://stage.deepskills.ru/courses/introduction-to-python")
@@ -8,13 +19,13 @@ describe("Введение в питон", ()=> {
     })
 
     it('introduction-to-python/exercises/162', ()=> {
-
+        cy.request('POST', 'auth/sign_in', {"email":"cm@ck.ru","password":"Johny#97"})
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/162')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Интерфейс Python')
         cy.get('[data-qa="exercise-content"]')// локатор показывает описание  
         cy.get('[data-qa="exercise-instructions"]')//локатор показывает упражнение 
         cy.get('[data-qa="exercise-use_hint"]').click()
-        cy.gt('[data-qa="exercise-hint_content"]') 
+        cy.get('[data-qa="exercise-hint_content"]') 
         cy.get('[data-qa="exercise-show_answer"]').click()
         cy.get('[data-qa="exercise-answer"]').click()
 
@@ -24,6 +35,7 @@ describe("Введение в питон", ()=> {
     })
 
     it('ntroduction-to-python/exercises/160', ()=> {
+        cy.login()
         cy.visit('https://stage.deepskills.ru/courses/introduction-to-python/exercises/160')
         cy.get('[data-qa="exercise-title"]').should('eq', 'Когда применять Python?')
         cy.get('').click()

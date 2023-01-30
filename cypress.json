@@ -1,1 +1,6 @@
-{}
+{
+    "baseUrl": "https://stage.deepskills.ru/",
+    "defaultCommandTimeout": 10000,
+    "experimentalSessionAndOrigin": true
+}
+  

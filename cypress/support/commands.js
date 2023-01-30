@@ -40,21 +40,46 @@ Cypress.Commands.add('normal_exercise_check', (exercise_title) => {
 
 Cypress.Commands.add('courses_api_check', (course_slug) => {
     cy.fixture('introduction-to-python').then((json) => {
-        cy.request('https://stage.deepskills.ru/api/v1/courses/' + course_slug).as('course')
+        cy.request('api/v1/courses/' + course_slug).as('course')
         cy.get('@course').then((response) => {
             expect(response.body).deep.eq(json)
       })
-      
-
-
-
-
-      
-
           })
       })
-    
 
+
+
+Cypress.Commands.add("login_api", () => {
+  cy.request({
+    method: 'POST',
+    url: 'https://stage.deepskills.ru/auth/sign_in',
+    headers: {
+      'access-token': 'S_k8v3afQoj7Vhqr9a84hw',  
+      'client': 'WJs14KyqS4oPrXTtz-yWdg',       
+      'expiry': '1675802276',
+      'uid': 'cm@ck.ru'
+    },
+    body: {       
+        "email":"cm@ck.ru",
+        "password":"Johny#97"
+    }
+  })
+
+})
+ 
+    
+Cypress.Commands.add('login_ui', (username, password) => {
+    cy.session([username, password], () => {
+        cy.visit("my-way?action=sign-in")
+        cy.get('[data-qa="auth-email_input"]').type(username)
+        cy.get('[data-qa="auth-password_input"]').type(password)
+        cy.get('[data-qa="auth-submit_button"]').click()
+        cy.url().should('eq', 'https://stage.deepskills.ru/courses')
+        cy.get('h1').should('have.text', 'Курсы')
+    })
+  })
       
+
+  
 
 
