@@ -1,29 +1,78 @@
 describe('Профиль', ()=>{
+    let userDetails;
+
+    beforeEach(() => {
+        cy.fixture("auth").then(user => {
+        userDetails = user;
+        });
+    });
+   
     it('Корректное отображение имени', () =>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check)
         cy.visit('https://stage.deepskills.ru/my')
-        cy.get('.class="css-g1zw9s"Галина')
+        cy.contains("Testprofile").should('be.visible')
 
-
-
-    } )
+    })
     it('Возможность изменить имя', () =>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check)
         cy.visit('https://stage.deepskills.ru/my')
-        cy.get('.class="css-tfym0v" value="Анна"')
+        cy.contains('Test').click()
+
 
     })
 
     it('Отображение на странице личного кабинета общего количества опыта, количество пройденных курсов, выполненнных упражнений, потраченных часов', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check)
         cy.visit('https://stage.deepskills.ru/my')
-        cy.get('.class="__5gjLU3_V"')
-        cy.get('.class="nnwuIR8t"').type('опыта набрано')
-        cy.get('.class="nnwuIR8t"').type('курсов пройдено')
-        cy.get('.class="nnwuIR8t"').type('упражнений выполнено')
-        cy.get('.class="nnwuIR8t"').type('Потраченных часов')
+        
     })
     it('Отображение на странице информации (E-mail, телефон, дата регистрации, окончание подписки)', () =>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check)
         cy.visit('https://stage.deepskills.ru/my')
-        cy.get('.class="GJyHLJUQ NJh8GC_7"')
-        cy.get('')
+        cy.contains('E-mail')
+        cy.contains('Телефон')
+        cy.contains('Дата регистрации')
+        cy.contains('Бесплатный тариф ')
+
     })
+    it('Возможность изменить телефон', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check)
+        cy.visit('https://stage.deepskills.ru/my')
+        cy.contains('Телефон').click()
+})
+    
+    
+    it('Отображение начатых курсов', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check) 
+        cy.visit('https://stage.deepskills.ru/my')
+        cy.contains('Начатые курсы')
+        cy.get('.class="vbPBSjIm"').type('Python для начинающих')
+
+        
+    })
+    it('Отображение завершенных курсов', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check) 
+        cy.visit('https://stage.deepskills.ru/my')
+        cy.get('."jttMzOad TotCBPns"').should('Завершенные курсы')
+        
+
+    } )
+    it('Возможность отменить подписку', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check) 
+        cy.visit('https://stage.deepskills.ru/my')
+
+    })
+    it('Возможность переходить на другие вкладки', ()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check) 
+        cy.visit('https://stage.deepskills.ru/my')
+
+
+    })
+    it('При обновлении страницы не происходит log out',()=>{
+        cy.login_ui(userDetails.email_profile_check, userDetails.password_profile_check) 
+        cy.visit('https://stage.deepskills.ru/my')
+
+    })
+
 
 })
